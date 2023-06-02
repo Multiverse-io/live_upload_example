@@ -15,8 +15,20 @@ defmodule DropsWeb.UploadsLive.Auto do
        max_file_size: 100_000_000,
        chunk_size: 256,
        auto_upload: true,
-       progress: &handle_progress/3
+       progress: &handle_progress/3,
+       external: &presigned_upload/2
      )}
+  end
+
+  defp presigned_upload(entry, socket) do
+    meta = %{
+      uploader: "ImmediatelyError",
+      name: entry.client_name,
+      ref: entry.ref,
+      uuid: entry.uuid
+    }
+
+    {:ok, meta, socket}
   end
 
   # with auto_upload: true we can consume files here
