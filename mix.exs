@@ -40,6 +40,7 @@ defmodule Drops.MixProject do
       {:phoenix_live_view, "~> 0.19.0", phoenix_live_view_opts()},
       {:floki, ">= 0.27.0", only: :test},
       {:phoenix_html, "~> 3.0"},
+      {:phoenix_view, "~> 2.0"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:telemetry_metrics, "~> 0.6.1"},
       {:telemetry_poller, "~> 0.4"},
